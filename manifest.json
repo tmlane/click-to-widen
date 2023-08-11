@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Click to Widen",
+  "version": "1.0",
+  "description": "A Chrome extension to widen elements on a webpage to 100% width.",
+  "permissions": ["activeTab","scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icon-24.png",
+      "48": "icon-48.png",
+      "128": "icon-96.png"
+    }
+  }
+}
