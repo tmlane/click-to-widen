@@ -1,5 +1,7 @@
 let activated = false;
 let currentlyHighlighted = null;
+let lastExpandedElement = null;
+
 
 function widenElement(element) {
   let originalPosition = element.style.position;
@@ -9,14 +11,27 @@ function widenElement(element) {
   let originalLeft = element.style.left;
 
   const rect = element.getBoundingClientRect();
+  console.log('rect',rect);
   const leftOffset = rect.left;
 
-  element.style.width = '100vw';
+  element.style.width = '98vw';
   element.style.position = 'relative'; 
   element.style.zIndex = '9999'; 
   element.style.backgroundColor = 'white'; 
   element.style.left = `-${leftOffset}px`; 
+  element.style.marginLeft = '.5vw';
+  lastExpandedElement = element;
 }
+
+// Add a resize listener to the window
+window.addEventListener('resize', function() {
+  // If there's an element that was expanded, reapply the expansion
+  setTimeout(() => {
+    if (lastExpandedElement) {
+      widenElement(lastExpandedElement);
+  }
+}, 2000);
+});
 
 document.addEventListener('mouseover', (e) => {
     if (activated) {
