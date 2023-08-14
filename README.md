@@ -1,6 +1,8 @@
 # Click to Widen - Chrome Extension
 Expand any HTML element to full width
 
+![Demo](https://github.com/tmlane/click-to-widen/assets/24379909/fe9684fd-e374-4124-a812-0d13f8be6747)
+
 Since this extension is still in development, it isn't available on the chrome webstore. You can still use it by doing the following:
 
 ###  Cloning the Project Locally
