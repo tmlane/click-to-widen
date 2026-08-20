@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Click to Widen</title>
+  <meta charset="utf-8">
+  <title>Click to Transform</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button id="toggle">Toggle</button>
-    <script src="popup.js"></script>
+  <div class="ctw-popup">
+    <h1>Click to Transform</h1>
+
+    <fieldset class="mode">
+      <legend>Mode</legend>
+      <label>
+        <input type="radio" name="mode" value="widen">
+        <span class="label">Widen</span>
+        <span class="hint">Expand element to full viewport width</span>
+      </label>
+      <label>
+        <input type="radio" name="mode" value="spotlight">
+        <span class="label">Spotlight</span>
+        <span class="hint">Dim the rest of the page</span>
+      </label>
+    </fieldset>
+
+    <div class="slider-row">
+      <div class="slider-header">
+        <label for="strength">Spotlight strength</label>
+        <span id="strength-value" class="value">65%</span>
+      </div>
+      <input type="range" id="strength" min="0.2" max="0.99" step="0.01" value="0.65">
+    </div>
+
+    <button id="toggle" type="button">Activate</button>
+
+    <div class="status">
+      <span id="status-dot" class="dot"></span>
+      <span id="status-text">Inactive</span>
+    </div>
+
+    <p class="tip">Click the extension icon to toggle on/off. Right-click the icon for settings. Press <kbd>Esc</kbd> to exit.</p>
+  </div>
+  <script src="popup.js"></script>
 </body>
 </html>
